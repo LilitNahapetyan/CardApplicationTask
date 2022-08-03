@@ -1,0 +1,25 @@
+.random-number{
+    height: 150px;
+    width: 300px;
+    border: 1px solid black;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.btn{
+    width: 20px;
+    height: 20px;
+    top:0;
+    border: none;
+    background-color: white;
+}
+
+.randomNumber{
+    align-self: center;
+    font-size: 40px;
+}
