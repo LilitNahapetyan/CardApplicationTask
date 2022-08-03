@@ -1,6 +1,5 @@
 import "./Main.css";
 import RandomCardList from "../RandomCardList/RandomCardList";
-import { useState } from "react";
 
 function Main({cards,scrollShow,deleteCard}) {
   

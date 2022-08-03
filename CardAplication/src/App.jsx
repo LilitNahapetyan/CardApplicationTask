@@ -3,6 +3,7 @@ import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
+import Aside from "./components/Aside/Aside";
 import generateNumber from "./components/generateUnqueNumber";
 
 function App() {
@@ -32,10 +33,12 @@ function App() {
     setCards(cards.filter((c) => c.value !== card.value));
   }
   return (
-    <div id="container">
+    <div className = "container-page"><div id="container">
       <Header add={add} sort={sort} />
       <Main cards={cards} deleteCard={deleteCard} scrollShow={scrollShow} />
       <Footer />
+    </div>
+    <Aside/>
     </div>
   );
 }
