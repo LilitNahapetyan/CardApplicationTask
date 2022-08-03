@@ -8,13 +8,13 @@ import generateNumber from "./components/generateUnqueNumber";
 
 function App() {
   const [cards, setCards] = useState([]);
-  const [scrollShow, setScrollShow] = useState({overflow:"hidden"});
+  const [scrollShow, setScrollShow] = useState({ overflow: "hidden" });
 
   useEffect(() => {
     if (cards.length > 4) {
-      setScrollShow({overflow:"scroll"});
-    }else{
-      setScrollShow({overflow:"hidden"});
+      setScrollShow({ overflow: "scroll" });
+    } else {
+      setScrollShow({ overflow: "hidden" });
     }
   }, [cards]);
 
@@ -33,12 +33,13 @@ function App() {
     setCards(cards.filter((c) => c.value !== card.value));
   }
   return (
-    <div className = "container-page"><div id="container">
-      <Header add={add} sort={sort} />
-      <Main cards={cards} deleteCard={deleteCard} scrollShow={scrollShow} />
-      <Footer />
-    </div>
-    <Aside/>
+    <div className="container-page">
+      <div id="container">
+        <Header add={add} sort={sort} />
+        <Main cards={cards} deleteCard={deleteCard} scrollShow={scrollShow} />
+        <Footer />
+      </div>
+      <Aside />
     </div>
   );
 }

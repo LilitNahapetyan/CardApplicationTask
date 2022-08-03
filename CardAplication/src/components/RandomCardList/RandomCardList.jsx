@@ -1,4 +1,4 @@
-import RandomCard from "../../RandomNumber/RandomCard";
+import RandomCard from "../../RandomCard/RandomCard";
 import "./RandomCardList.css";
 
 function RandomCardList({cards,deleteCard}){
