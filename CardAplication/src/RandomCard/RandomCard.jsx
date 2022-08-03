@@ -1,5 +1,10 @@
+import { useContext } from "react";
+import { MainContext } from "../App";
+import React from "react";
 import "./RandomCard.css";
-function RandomCard({ card, deleteCard }) {
+
+function RandomCard({ card }) {
+  const [deleteCard] = useContext(MainContext);
   return (
     <div className="random-number">
       <div>

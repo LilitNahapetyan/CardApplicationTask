@@ -1,20 +1,23 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import React from "react";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Aside from "./components/Aside/Aside";
 import generateNumber from "./components/generateUnqueNumber";
 
+export const MainContext = React.createContext();
+
 function App() {
   const [cards, setCards] = useState([]);
-  const [scrollShow, setScrollShow] = useState({ overflow: "hidden" });
+  const [scrollShow, setScrollShow] = useState({ overflowY: "hidden" });
 
   useEffect(() => {
     if (cards.length > 4) {
-      setScrollShow({ overflow: "scroll" });
+      setScrollShow({ overflowY: "scroll" });
     } else {
-      setScrollShow({ overflow: "hidden" });
+      setScrollShow({ overflowY: "hidden" });
     }
   }, [cards]);
 
@@ -29,14 +32,16 @@ function App() {
     setCards([...sorted]);
   }
   function deleteCard(card) {
-    console.log(card.value);
     setCards(cards.filter((c) => c.value !== card.value));
   }
+
   return (
     <div className="container-page">
       <div id="container">
         <Header add={add} sort={sort} />
-        <Main cards={cards} deleteCard={deleteCard} scrollShow={scrollShow} />
+        <MainContext.Provider value={[deleteCard, cards]}>
+          <Main scrollShow={scrollShow} />
+        </MainContext.Provider>
         <Footer />
       </div>
       <Aside />

@@ -1,10 +1,10 @@
 import "./Main.css";
 import RandomCardList from "../RandomCardList/RandomCardList";
 
-function Main({ cards, scrollShow, deleteCard }) {
+function Main({ scrollShow }) {
   return (
     <div className="main-container" style={scrollShow}>
-      <RandomCardList cards={cards} deleteCard={deleteCard} />
+      <RandomCardList />
     </div>
   );
 }
