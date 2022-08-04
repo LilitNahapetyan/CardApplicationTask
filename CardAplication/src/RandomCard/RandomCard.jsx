@@ -1,14 +1,11 @@
-import { useContext } from "react";
-import { MainContext } from "../App";
-import React from "react";
-import "./RandomCard.css";
+import React from 'react';
+import './RandomCard.css';
 
-function RandomCard({ card }) {
-  const [deleteCard] = useContext(MainContext);
+function RandomCard({ card, deleteCard }) {
   return (
     <div className="random-number">
       <div>
-        <button className="btn" onClick={() => deleteCard(card)}>
+        <button className="btn" onClick={() => deleteCard(card.id)}>
           X
         </button>
       </div>

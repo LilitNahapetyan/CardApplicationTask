@@ -1,16 +1,13 @@
-import { useContext } from "react";
-import RandomCard from "../../RandomCard/RandomCard";
-import { MainContext } from "../../App";
-import "./RandomCardList.css";
+import RandomCard from '../../RandomCard/RandomCard';
+import './RandomCardList.css';
 
-function RandomCardList() {
-  const [, cards] = useContext(MainContext);
+function RandomCardList({ deleteCard, cards }) {
   return (
-    <div className="list-container">
+    <>
       {cards.map((card) => {
-        return <RandomCard card={card} key={card.value} />;
+        return <RandomCard card={card} key={card.id} deleteCard={deleteCard} />;
       })}
-    </div>
+    </>
   );
 }
 export default RandomCardList;
