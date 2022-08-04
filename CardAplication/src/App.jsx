@@ -9,6 +9,15 @@ import RandomCardList from './components/RandomCardList/RandomCardList';
 
 function App() {
   const [cards, setCards] = useState([]);
+  const [scrollShow, setScrollShow] = useState({ overflowY: "hidden" });
+
+  useEffect(() => {
+    if (cards.length > 4) {
+      setScrollShow({ overflowY: "scroll" });
+    } else {
+      setScrollShow({ overflowY: "hidden" });
+    }
+  }, [cards]);
 
   function add() {
     setCards([
@@ -26,6 +35,7 @@ function App() {
     });
     setCards([...sorted]);
   }
+
   function deleteCard(cardID) {
     setCards(cards.filter((card) => card.id !== cardID));
   }
@@ -34,8 +44,8 @@ function App() {
     <div className="container-page">
       <div id="container">
         <Header add={add} sort={sort} />
-        <div className="main-container">
-          <RandomCardList deleteCard={deleteCard} cards={cards} />
+        <div className="main-container" style = {scrollShow}>
+          <RandomCardList deleteCard={deleteCard} cards={cards}/>
         </div>
         <Footer />
       </div>
