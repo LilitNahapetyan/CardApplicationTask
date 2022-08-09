@@ -1,11 +1,17 @@
-import RandomCard from '../../RandomCard/RandomCard';
-import './RandomCardList.css';
-
-function RandomCardList({ deleteCard, cards}) {
+import "./RandomCardList.css";
+import React, { Suspense } from "react";
+const RandomCard = React.lazy(() => import("../../RandomCard/RandomCard"));
+function RandomCardList({ deleteCard, cards }) {
   return (
     <>
       {cards.map((card) => {
-        return <RandomCard card={card} key={card.id} deleteCard={deleteCard}/>;
+        return (
+          <>
+            <Suspense fallback={<div>Loading...</div>}>
+              <RandomCard card={card} key={card.id} deleteCard={deleteCard} />
+            </Suspense>
+          </>
+        );
       })}
     </>
   );
